@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ascend.example.demospringboot.model.User;
 
 /**
- * User's REST-FULL api
+ * User's REST-FULL api version 1
  * 
  * @author hau.vuvan
  *
@@ -39,25 +39,6 @@ public class UserController {
   }
 
   /**
-   * Get user by id
-   * 
-   * @param id
-   * @return User object
-   */
-//  @GetMapping(path = {"/{id}"})
-//  public ResponseEntity<User> findById(@PathVariable Long id) {
-//    return service.findById(id).map(record -> ResponseEntity.ok().body(record))
-//        .orElse(ResponseEntity.notFound().build());
-//  }
-  
-//  @GetMapping(path = {"/{id}"})
-//  public User getUser(@PathVariable Long id) {
-//    Optional<User> u = service.findById(id);
-//    User user = u.get();
-//    return user;
-//  }
-
-  /**
    * Get user dto by user id
    * @param id User's id
    * @return UserDTO
@@ -72,23 +53,17 @@ public class UserController {
     //log.info("userDto: "+ userDto);
     return userDto;
   }
+
   /**
-   * Create user
-   *
+   * Creat new user
    * @param userDto
    * {
-   *     "id": 3,
    *     "user_name": "name- 3",
    *     "user_email": "email3@gmail.com",
    *     "user_adress": "address-3"
    * }
-   * @return User object
+   * @return
    */
-//  @PostMapping
-//  public User create(@RequestBody User user) {
-//    return service.save(user);
-//  }
-
   @PostMapping
   public UserDto createUser(@RequestBody UserDto userDto) {
     ModelMapper mapper = new ModelMapper();
